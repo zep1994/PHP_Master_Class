@@ -11,6 +11,7 @@ and open the template in the editor.
     </head>
     <body>
         <main>
+            <script>console.log("ehll")</script>
             <header>
                 <h1>Title of the Website</h1>
             </header>
@@ -20,19 +21,9 @@ and open the template in the editor.
         </main>
         <?php
         
-            echo 'hello';
-            $arr = ["tim", "<h2>hto</h2>"];
+            //Use powers in php 
+            echo pow(2, 7);
             
-            foreach ($arr as $id) {
-                echo "</br>";
-                echo $id;
-            }
-            
-            function sayHello() {
-                echo "say hello";
-            }
-            
-            sayHello();
         ?>
     </body>
 </html>

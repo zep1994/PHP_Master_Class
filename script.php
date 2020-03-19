@@ -5,12 +5,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-function greeting() {
-    echo "Hello sucka";
-}
 
+if (isset($_POST['submit'])) {
+    echo "clicked";
+}
 //can use const to make the Constant
 
-greeting();
+
 
 ?>

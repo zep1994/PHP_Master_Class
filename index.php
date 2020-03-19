@@ -4,6 +4,10 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<?php 
+    include 'script.php';
+?>
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -15,15 +19,11 @@ and open the template in the editor.
             <header>
                 <h1>Title of the Website</h1>
             </header>
-            <?php 
-                include 'script.php';
-            ?>
+
+            <form action="index.php" method="POST">
+                <input type="Text" />
+                <input type="submit" name="submit" />
+            </form>
         </main>
-        <?php
-        
-            //Use powers in php 
-            echo pow(2, 7);
-            
-        ?>
     </body>
 </html>

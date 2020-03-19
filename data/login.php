@@ -4,9 +4,13 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
         
-        echo $username;
-        echo $email;
-        echo $password;
+        if($username && $email && $password) {
+            echo $username;
+            echo $email;
+            echo $password;
+        } else {
+            echo "All Values are required";
+        }
     }
 ?>
 

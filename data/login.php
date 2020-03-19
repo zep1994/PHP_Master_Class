@@ -35,7 +35,11 @@
             
             <div class="container">
                 <div class="col-xs-6">
-
+                    <?php
+                        while($row = mysqli_fetch_row($result)) {
+                            print_r($row);
+                        }
+                    ?>
                 </div>
             </div>
         </main>

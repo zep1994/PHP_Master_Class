@@ -1,27 +1,21 @@
 <?php 
-
-    include 'db.php';
+    include 'functions.php';
     
     if(isset($_POST['submit'])) {
         $username = $_POST['username'];
         $email = $_POST['email'];
         $password = $_POST['password'];
-            
-            $query = "INSERT INTO users(username, email, password) ";
-            $query .= "VALUES ('$username', '$email', '$password')";
-            
-            $result = mysqli_query($conn, $query);
-            
-            if (!$result) {
-                die('query failed');
-            }        
-                    
-        if($username && $email && $password) {
-            echo $username;
-            echo $email;
-            echo $password;
-        } else {
-            echo "All Values are required";
+        $id = $_POST['id'];
+        
+        $query = "UPDATE users SET ";
+        $query .= "username = '$username', ";
+        $query .= "email = '$email', ";
+        $query .= "password = '$password' ";
+        $query .= "WHERE id = $id ";
+        
+        $result = mysqli_query($conn, $query);
+        if (!$result) {
+            die("could not run" . mysqli_error($conn));
         }
     }
 ?>
@@ -44,7 +38,7 @@
             
             <div class="container">
                 <div class="col-xs-6">
-                    <form action="login.php" method="POST">
+                    <form action="login_update.php" method="POST">
                         
 <!--                        Username -->
                         <div class="form-group">
@@ -63,8 +57,17 @@
                              <label for='password'>Password</label>
                              <input type="password" name="password" class="form-control" />
                         </div>
-
-                        <input type="submit" name="submit" class="btn btn-primary" />
+                        
+                        <div class="form-group">
+                                <select name='id' id=''>
+                                <?php 
+                                    showAllData();
+                                ?>    
+                            </select>
+                        </div>
+                        
+                  
+                        <input type="submit" name="submit" class="btn btn-primary" value="Update"/>
                     </form>
                 </div>
             </div>

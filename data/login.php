@@ -36,7 +36,7 @@
             <div class="container">
                 <div class="col-xs-6">
                     <?php
-                        while($row = mysqli_fetch_row($result)) {
+                        while($row = mysqli_fetch_assoc($result)) {
                          
                     ?>
                     <pre>

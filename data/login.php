@@ -4,6 +4,23 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
         
+        $conn = mysqli_connect('localhost', 'root', '', 'loginapp');
+        
+            if($conn) {
+                echo "We are connected <br />";
+            } else {
+                echo "Could Not Connect <br />";
+            }
+            
+            $query = "INSERT INTO users(username, email, password) ";
+            $query .= "VALUES ('$username', '$email', '$password')";
+            
+            $result = mysqli_query($conn, $query);
+            
+            if (!$result) {
+                die('query failed');
+            }        
+                    
         if($username && $email && $password) {
             echo $username;
             echo $email;

@@ -1,20 +1,29 @@
 <?php 
-        
-    $conn = mysqli_connect('localhost', 'root', '', 'loginapp');
-        
-        if($conn) {
-            echo "We are connected <br />";
+
+    include 'Connection.php';
+    
+    if(isset($_POST['submit'])) {
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+            
+            $query = "INSERT INTO users(username, email, password) ";
+            $query .= "VALUES ('$username', '$email', '$password')";
+            
+            $result = mysqli_query($conn, $query);
+            
+            if (!$result) {
+                die('query failed');
+            }        
+                    
+        if($username && $email && $password) {
+            echo $username;
+            echo $email;
+            echo $password;
         } else {
-            echo "Could Not Connect <br />";
+            echo "All Values are required";
         }
-
-        $query = "SELECT * FROM users";
-
-        $result = mysqli_query($conn, $query);
-
-        if (!$result) {
-            die('query failed');
-        }        
+    }
 ?>
 
 
@@ -35,19 +44,28 @@
             
             <div class="container">
                 <div class="col-xs-6">
-                    <?php
-                        while($row = mysqli_fetch_assoc($result)) {
-                         
-                    ?>
-                    <pre>
-                        <?php
-                        print_r($row);
-                        ?>
-                    </pre>
-                    
-                    <?php
-                        }
-                    ?>
+                    <form action="login.php" method="POST">
+                        
+<!--                        Username -->
+                        <div class="form-group">
+                            <label for='username'>Username</label>
+                            <input type="text" name="username" class="form-control" />
+                        </div>
+
+ <!--                        Email -->
+                        <div class="form-group">
+                             <label for='email'>E-mail</label>
+                            <input type="text" name="email" class="form-control" />
+                        </div>
+ 
+<!--                        Password-->
+                        <div class="form-group">
+                             <label for='password'>Password</label>
+                             <input type="password" name="password" class="form-control" />
+                        </div>
+
+                        <input type="submit" name="submit" class="btn btn-primary" />
+                    </form>
                 </div>
             </div>
         </main>

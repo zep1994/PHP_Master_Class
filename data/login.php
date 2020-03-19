@@ -1,8 +1,15 @@
+<?php 
+    if(isset($_POST['submit'])) {
+        echo "Yes we got it";
+    }
+?>
+
+
 <!DOCTYPE HTML>
 <html>
     <head>
         <title>
-            The database page
+            The Login Page
         </title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
@@ -10,12 +17,12 @@
     <body>
         <main>
             <header>
-                <h1>Database</h1>
+                <h1>Login Form</h1>
             </header>
             
             <div class="container">
                 <div class="col-xs-6">
-                    <form action="login.php">
+                    <form action="login.php" method="POST">
                         
 <!--                        Username -->
                         <div class="form-group">

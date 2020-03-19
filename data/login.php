@@ -1,20 +1,20 @@
 <?php 
         
-        $conn = mysqli_connect('localhost', 'root', '', 'loginapp');
+    $conn = mysqli_connect('localhost', 'root', '', 'loginapp');
         
-            if($conn) {
-                echo "We are connected <br />";
-            } else {
-                echo "Could Not Connect <br />";
-            }
-            
-            $query = "SELECT * FROM users";
-            
-            $result = mysqli_query($conn, $query);
-            
-            if (!$result) {
-                die('query failed');
-            }        
+        if($conn) {
+            echo "We are connected <br />";
+        } else {
+            echo "Could Not Connect <br />";
+        }
+
+        $query = "SELECT * FROM users";
+
+        $result = mysqli_query($conn, $query);
+
+        if (!$result) {
+            die('query failed');
+        }        
 ?>
 
 
@@ -37,7 +37,15 @@
                 <div class="col-xs-6">
                     <?php
                         while($row = mysqli_fetch_row($result)) {
-                            print_r($row);
+                         
+                    ?>
+                    <pre>
+                        <?php
+                        print_r($row);
+                        ?>
+                    </pre>
+                    
+                    <?php
                         }
                     ?>
                 </div>

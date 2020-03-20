@@ -1,6 +1,6 @@
 <?php 
     
-    include 'db.php';
+    include '../data/db.php';
     
             $query = "SELECT * FROM users";
             

@@ -1,5 +1,5 @@
 <?php
-        include 'db.php';
+        include '../data/db.php';
 
         function showAllData() {
 

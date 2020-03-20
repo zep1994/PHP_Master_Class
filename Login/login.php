@@ -1,6 +1,6 @@
 <?php 
 
-    include 'db.php';
+    include '../data/db.php';
     
     if(isset($_POST['submit'])) {
         $username = $_POST['username'];

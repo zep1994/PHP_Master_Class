@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <?php 
     include 'script.php';
-    include 'db.php';
+    include './data/db.php';
 ?>
 
 <html>
